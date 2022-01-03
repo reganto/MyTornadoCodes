@@ -4,8 +4,10 @@ from .base import BaseHandler
 
 class homeHandler(BaseHandler):
 
-    @tornado.web.authenticated
+    # @tornado.web.authenticated
     def get(self):
-        self.render('index.html', user = self.current_user)
-
+        if self.authenticate():
+            self.render('index.html', user = self.current_user)
+            return
+        self.redirect_rev('login')
 

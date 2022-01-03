@@ -8,15 +8,13 @@ class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
         return self.get_secure_cookie("username")
 
-    def login(self, username: str, password: str) -> bool:
+    def login(self, username: str, password: str) -> None:
         """Login user with provided username and password
 
-        :param self: An instance of Tornado.web.RequestHandler
         :param username: username that provided by user
         :type username: str
         :param password: password that provided by user
         :type password: str
-        :rtype: bool
         """
 
         password = password.encode('utf-8')
@@ -31,20 +29,17 @@ class BaseHandler(tornado.web.RequestHandler):
                 break
         if auth:
                 self.set_secure_cookie("username", username)
-                self.redirect("/")
         else:
-                self.redirect("/login")
+                raise PermissionError("You'r username or password is incorrent") 
 
 
-    def register(self, username: str, password: str) -> bool:
+    def register(self, username: str, password: str) -> None:
         """Register user with provided username and password
 
-        :param self: An instance of Tornado.web.RequestHandler
         :param username: username that provided by user
         :type username: str
         :param password: password that provided by user
         :type password: str
-        :rtype: bool
         """
 
         password = password.encode('utf-8')
@@ -63,24 +58,23 @@ class BaseHandler(tornado.web.RequestHandler):
                   salt=salt
             )
             self.set_secure_cookie("username",self.get_argument("username"))
-            self.redirect("/")
         else:
-            self.redirect("/register")
+            raise ValueError('User registration failed!')
 
 
-    def logout(self):
-        """Logout user
-
-        :param self: An instance of tornado.web.RequestHandler
-        """
-        if (self.get_argument("logout", None)):
-             self.clear_cookie("username")
-             self.redirect('/')
+    def logout(self) -> None:
+        """Logout user"""
+        self.clear_cookie("username")
 
     def authenticate(self) -> bool:
         """Current user is authenticated or not
 
-        :param self: An instance of tornado.web.RequestHandler
         :rtype: bool
         """
+        if self.current_user:
+            return True
+        return False
+
+    def redirect_rev(self, name: str):
+        self.redirect(self.reverse_url(name))
 

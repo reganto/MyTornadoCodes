@@ -10,10 +10,18 @@ class loginHandler(BaseHandler):
         self.render("login.html")
 
     def post(self):
-        username = self.get_argument("username", "")
-        password = self.get_argument("password", "")
-        self.login(username, password)
-        
+        username = self.get_argument("username", None)
+        password = self.get_argument("password", None)
+        try:
+            self.login(username, password)
+        except PermissionError:
+            self.write(
+                    '''<h3>You'r username or password is incorrect</h3>'''
+                    '''<p>Corrent you'r information and try again</p>'''
+                    '''<a href="/login/">try again</a>'''
+            )
+        else:
+            self.redirect_rev('home') 
 
 
 class registerHandler(BaseHandler):
@@ -23,9 +31,18 @@ class registerHandler(BaseHandler):
         self.render("register.html")
 
     def post(self):
-        username = self.get_argument("username", "")
-        password = self.get_argument("password", "")
-        self.register(username, password) 
+        username = self.get_argument("username", None)
+        password = self.get_argument("password", None)
+        try:
+            self.register(username, password) 
+        except ValueError: 
+            self.write(
+                    '''<div><h3>User registeration failed!</h3></div>'''
+                    '''<p>Corrent username and password and try again</p>'''
+                    '''<p><a href="/register/">try again</a><p>'''
+            )
+        else:
+            self.redirect_rev('home')
 
 
 class logoutHandler(BaseHandler):
@@ -33,4 +50,5 @@ class logoutHandler(BaseHandler):
     @addslash
     def get(self):
         self.logout()
+        self.redirect_rev('home')
 
