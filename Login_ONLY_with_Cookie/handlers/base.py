@@ -1,7 +1,8 @@
 import uuid
 import hashlib
-from models import User
 import tornado.web
+
+from models import User
 
 
 class BaseHandler(tornado.web.RequestHandler):
