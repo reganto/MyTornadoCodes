@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+      <form action="{{ reverse_url('login') }}" method="POST" class="form mt-5">
+         <div class="mb-3">
+             <label class="form-label" for="username">Username: </label>
+             <input type="text" id="username" name="username" class="form-control" />
+         </div>
+         <div class="mb-3">
+             <label class="form-label" for="password">Password: </label>
+             <input type= "password" id="password" name="password" class="form-control" />
+         </div>
+         <input type="submit" value="Log In" class="btn btn-primary" />
+     </form>
+     <br />
+     <a href="/register" class="link-info">Register</a>
+{% end %}
