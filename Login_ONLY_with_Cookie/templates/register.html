@@ -1,10 +1,22 @@
 {% extends "base.html" %}
 
 {% block body %}
+      {% if flash_messages.get('error', '') %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>{{ flash_messages.get('error', '') }}</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% end %}
 <form action="{{ reverse_url('register') }}" method="POST">
          <div class="mb-3">
              <label class="form-label" for="username">Username: </label>
-             <input type="text" id="username" name="username" class="form-control" />
+             <input 
+               type="text" 
+               id="username" 
+               name="username"
+               value="{{flash_messages.get('username', '')}}"
+               required="required"
+               class="form-control" />
          </div>
          <div class="mb-3">
              <label class="form-label" for="password">Password: </label>

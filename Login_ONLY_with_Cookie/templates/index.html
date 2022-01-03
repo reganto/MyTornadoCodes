@@ -1,5 +1,5 @@
 {% extends "base.html" %}
 {% block body %}
-<h1>Welcome Back, {{ user }}</h1>
+<h1>Welcome Back, {{ current_user }}</h1>
 <a href="{{ reverse_url('logout') }}">Logout</a>
 {% end %}

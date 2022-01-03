@@ -6,7 +6,7 @@ class homeHandler(BaseHandler):
     # @tornado.web.authenticated
     def get(self):
         if self.authenticate():
-            self.render('index.html', user=self.current_user)
+            self.render('index.html')
             return
         self.redirect_rev('login')
 

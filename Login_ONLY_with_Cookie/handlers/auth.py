@@ -7,7 +7,7 @@ class loginHandler(BaseHandler):
     
     @addslash
     def get(self):
-        self.render("login.html")
+        self.render("login.html", flash_messages={})
 
     def post(self):
         username = self.get_argument("username", None)
@@ -15,11 +15,12 @@ class loginHandler(BaseHandler):
         try:
             self.login(username, password)
         except PermissionError:
-            self.write(
-                    '''<h3>You'r username or password is incorrect</h3>'''
-                    '''<p>Corrent you'r information and try again</p>'''
-                    '''<a href="/login/">try again</a>'''
-            )
+            flash_messages = {
+                    'username': username,
+                    'password': password,
+                    'error': "You'r username or password is incorrent"
+                    }
+            self.render('login.html', flash_messages=flash_messages)
         else:
             self.redirect_rev('home') 
 
@@ -28,7 +29,7 @@ class registerHandler(BaseHandler):
 
     @addslash
     def get(self):
-        self.render("register.html")
+        self.render("register.html", flash_messages={})
 
     def post(self):
         username = self.get_argument("username", None)
@@ -36,11 +37,12 @@ class registerHandler(BaseHandler):
         try:
             self.register(username, password) 
         except ValueError: 
-            self.write(
-                    '''<div><h3>User registeration failed!</h3></div>'''
-                    '''<p>Corrent username and password and try again</p>'''
-                    '''<p><a href="/register/">try again</a><p>'''
-            )
+            flash_messages = {
+                    'username': username,
+                    'password': password,
+                    'error': "User registeration failed! try again."
+                    }
+            self.render('register.html', flash_messages=flash_messages)
         else:
             self.redirect_rev('home')
 
