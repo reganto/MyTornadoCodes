@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lan="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Tornado | Cookies</title>
+</head>
+<body style="direction: rtl">
+  <div class="container">
+    <div id="header">
+      {% block header %}
+      <a href="{{ reverse_url('home') }}" class="link-primary">{{ _('خانه') }}</a> |
+      {% if current_user %}
+        <a href="{{ reverse_url('profile')  }}" class="link-primary">{{ _('پروفایل')
+        }}</a> | <a href="{{ reverse_url('logout')  }}" class="link-primary">{{ _('خروج')  }}</a>
+      {% else %}
+        <a href="{{ reverse_url('login') }}" class="link-primary">{{ _('ورود') }}</a>
+      {% end %}
+      {% end %}
+    </div>
+    <div id="content">
+    {% block content %}{% end %}
+    </div>
+  </div>
+</body>
+</html>

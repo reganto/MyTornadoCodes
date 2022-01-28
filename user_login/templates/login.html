@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}{% end %}
+
+{% block content %}
+  <form action="{{ reverse_url('login') }}" method="POST">
+    {% module xsrf_form_html()  %}
+    <fieldset>
+      <legend>ورود به سایت</legend>
+      <label for="username" class="form-label">{{ _("نام کاربری")  }}: </label>
+      <input class="form-control" id="username"  type="text" name="username"  required="required" />
+      <div class="form-text mb-3"><small>نام کاربری به کوچکی و بزرگی حروف حساس است.</small></div>
+      <div class="input-group mb-3">
+        <input class="btn btn-primary" type="submit" value="{{ _('ورود')  }}" />
+      </div>
+    </fieldset>
+  </form>
+{% end %}
