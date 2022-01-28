@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>dictionary</title>
+</head>
+<body>
+  <div id="word_div">
+    <input type="text" id="word" placeholder="Enter you word" />
+    <input type="submit" value="translate" onclick="sendWord()" />
+    <p id="showmsg"></p>
+  </div>
+  
+  <div id="meaning_div" style="display: none;">
+    <input type="text" id="meaning" placeholder="Enter meaning" />
+    <input type="submit" value="save" onclick="sendMeaning()" />
+  </div>
+
+  <script>
+      const socket = new WebSocket('ws://' + location.host + '/query/');
+      
+      function retriveFromStorage(word) {
+          let meaning = localStorage.getItem(word);
+          return meaning;
+      }
+      
+      function saveToStorage(word, meaning) {
+          localStorage.setItem(word, meaning);
+      }
+      
+      function sendWord() {
+          if(retriveFromStorage(document.getElementById('word').value)) {
+              document.getElementById('showmsg').innerHTML = retriveFromStorage(document.getElementById('word').value);
+           } else {
+              socket.send(JSON.stringify({'w': document.getElementById('word').value, 'm': null}));
+          }
+      }
+      
+      function sendMeaning() {
+          let word = document.getElementById('word').value;
+          let meaning = document.getElementById('meaning').value;
+          let data = JSON.stringify({'w': word, 'm': meaning});
+          socket.send(data);
+      }
+      
+      socket.onmessage = function(e) {
+          let data = JSON.parse(e.data);
+          if(data['code'] == 404) {
+              document.getElementById('showmsg').innerHTML = '';
+              document.getElementById('meaning').value = '';
+              document.getElementById('meaning_div').style.display = 'block';
+              return;
+          }
+          if(document.getElementById('meaning_div').style.display == 'block') {
+              document.getElementById('meaning_div').style.display = 'none';
+          }
+          saveToStorage(data['w'], data['m']);
+          document.getElementById('showmsg').innerHTML = data['m'];
+      }      
+  </script>
+</body>
+</html>
