@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="w3-card-4 w3-margin-top w3-animate-zoom center">
+    <form method="post" onsubmit="return false;" id="reg">
+        <input type="text" name="username" id="username"  
+        class="w3-input" onblur="sendData(this.value)" />
+        <p id="demo"></p>
+    </form>
+</div>
+{% end %}
