@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<p id="demo" class="w3-teal w3-panel w3-center center"></p>
+<script>
+    if(typeof(EventSource) != "undefined") {
+        var source = new EventSource('/s');
+
+        source.addEventListener('message', function(e) {
+            document.getElementById('demo').innerHTML += e.data + "<br />";
+        }, false)
+
+        source.addEventListener('dev', function(e) {
+            console.log(e.data);
+        }, false)
+    } else {
+        alert("Your browser doesn't support sse");
+    }
+</script>
+{% end %}
