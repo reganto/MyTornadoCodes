@@ -1,0 +1,7 @@
+test and run A database on server
+   *connect to db
+   *create a db
+   *create a collection
+   *create document(s)
+   *save and retrive data to/from db
+   
