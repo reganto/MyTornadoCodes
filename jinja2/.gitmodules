@@ -1,0 +1,4 @@
+[submodule "vendor/redirect"]
+	path = vendor/redirect 
+	url = https://github.com/reganto/paratorn.git
+
