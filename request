@@ -1,0 +1,27 @@
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/register', version='HTTP/1.1', remote_ip='127.0.0.1')
+
+
+request.protocol
+
+request.host
+
+request.method
+
+request.path == request.uri
+
+request.version
+
+request.remote_ip
+
+
+
+
+request.body
+
+request.headers 
+
+request.files
+
+request.arguments
+
+request.connection
