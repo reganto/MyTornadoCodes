@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Hello World</h3>
+    <button type="submit" onclick="loadData()">Load Data</button>
+    <p id="data"></p>
+
+    <script>
+        function loadData() {
+            let XHRObject = false;
+
+            XHRObject = new XMLHttpRequest();
+            XHRObject.open("GET", "/call/", true)
+            XHRObject.send(null)
+            XHRObject.onreadystatechange = () => {
+                if((XHRObject.readyState == 4) && (XHRObject.status == 200))
+                    document.getElementById("data").innerHTML = XHRObject.responseText;
+            }
+        }
+    </script>
+</body>
+</html>
