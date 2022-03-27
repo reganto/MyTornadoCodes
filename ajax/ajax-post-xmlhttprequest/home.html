@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Hello World</h3>
+    <input type="text" name="message" id="message" />
+    <button type="submit" onclick="sendData()">Send</button>
+    <p id="data"></p>
+
+    <script>
+        function getFormData() {
+            message = document.getElementById("message").value;
+            return `message=${escape(message)}`;
+        }
+
+        function sendData() {
+            let XHRObject = false;
+            callUrl = "{{ reverse_url('call') }}";
+            XHRObject = new XMLHttpRequest();
+            XHRObject.open("POST", `${callUrl}`, true);
+            XHRObject.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            XHRObject.send(getFormData());
+            XHRObject.onreadystatechange = () => {
+                if ((XHRObject.readyState == 4) && (XHRObject.status == 200))
+                    document.getElementById("data").innerHTML = XHRObject.responseText;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
