@@ -1,0 +1,40 @@
+{% extends base.html %}
+
+{% block body %}
+<div class="w3-panel w3-card-4 w3-light-grey" 
+    style="width: 50%; margin-right: auto; margin-left: auto; display: block;">
+    <h2 class="w3-center w3-teal">Burt Books</h2>
+    <form method="post" class="w3-margin">
+        <label for="">ISBN</label>
+        <input type="text" name="isbn" id="isbn" 
+            value="{{ book.get('isbn', '') }}" class="w3-input w3-animate-zoom" />
+
+        <label for="">Title</label>
+        <input type="text" name="title" id="title" 
+            value="{{ book.get('title', '') }}" class="w3-input w3-animate-zoom" />
+        
+        <label for="">Subtitle</label>
+        <input type="text" name="subtitle" id="subtitle" 
+            value="{{ book.get('subtitle', '') }}" class="w3-input w3-animate-zoom" />
+        
+        <label for="">Image</label>
+        <input type="text" name="image" id="image" 
+            value="{{ book.get('image', '') }}" class="w3-input w3-animate-zoom" />
+        
+        <label for="">Author</label>
+        <input type="text" name="author" id="author" class="w3-input w3-animate-zoom"
+            value="{{ book.get('author', '') }}" />
+        
+        <label for="">Date released</label>
+        <input type="text" name="date_released" id="date_released"
+            value="{{ book.get('date_released', '') }}" class="w3-input w3-animate-zoom" />
+        
+        <label for="">Description</label>
+        <textarea name="description" id="description" cols="40" rows="5" class="w3-input w3-animate-zoom">
+            {% raw book.get('description', '') %}
+        </textarea><br />
+        <input type="submit" value="{{ _('Send') }}" class="w3-cell-row w3-button w3-green w3-round-large" />
+        {% module xsrf_form_html() %}
+    </form>
+</div>
+{% end %}

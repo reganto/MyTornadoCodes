@@ -1,0 +1,24 @@
+<div class="w3-panel w3-cell-row" style="width: 70%; margin-right: auto; margin-left: auto; display: block">
+    <h2 class="w3-text-green">{{ book.get('title') }}</h2>
+    {% if book['subtitle'] != '' %}
+        <h4>{{ book.get('subtitle') }}</h4>
+    {% end %}
+    {% set img_link=book.get('image') %}
+    <img src="{{ static_url('{}'.format(img_link))}}" alt="image" width="300" height="300"  class="w3-hover-opacity"/>
+
+    <br />
+    by: <small>{{ book.get('author') }}</small>
+    <br />
+    <p>
+        Released: {{ book.get('date_released') }}
+    </p>
+    <p>
+        Added: {{ locale.format_date(book.get('date_added'), relative=False) }}
+    </p>
+    
+    <p>
+        description: {% raw book.get('description') %}
+    </p>
+    <a href="/edit/{{ book.get('isbn') }}" class="w3-button w3-green">{{ _("Edit") }}</a>
+</div>
+<hr class="w3-topbar w3-bottombar w3-round-xxlarge" />
