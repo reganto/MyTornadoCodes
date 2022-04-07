@@ -1,0 +1,13 @@
+    td
+    {
+		width: 32px;
+		text-align: right;
+		height: 20px;
+	}
+	td input
+	{
+		height:16px;
+		text-align:center;
+		border: none;
+		width: 100%;
+	}
