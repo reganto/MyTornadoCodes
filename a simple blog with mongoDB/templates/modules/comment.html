@@ -1,0 +1,16 @@
+
+<link rel="stylesheet" href=" {{static_url('css/960_12_col.css')}} " />
+<!--<script type="text/javascript" src="js/jquery-3.0.0.min.js">-->
+
+</script>
+{% block topleft %}
+    <div class="pull_5" id="reganto">
+        <hr />
+        <p>name : {{ comment.get('name', ' ') }}</p>
+        <p>email : {{ comment.get('email', ' ') }}</p>
+        <p>comment : {{ comment.get('comment', ' ') }}</p>
+        <!--<input type="text" name="name" value="{{ comment.get('name', ' ') }}"
+         style="display: none" formmethod="post" formaction="/del" />
+        <p><a href="/del">Delete</a> </p>-->
+    </div>
+{% end %}

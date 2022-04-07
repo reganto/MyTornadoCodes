@@ -1,0 +1,12 @@
+{% extends "dashboard.html" %}
+
+{% block topleft %}
+
+    <form action="/compose" method="post">
+        <input type="text" name="post_title" placeholder="post title"
+        required="required", autocomplete="on" size="57" />
+        <textarea name="post_content" rows="8" cols="80"></textarea>
+        <input type="submit" value="compose" />
+    </form>
+
+{% end %}

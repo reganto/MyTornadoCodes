@@ -1,0 +1,103 @@
+<html>
+<head>
+  <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="{{ static_url("css/style.css") }}" />
+  <link rel="stylesheet" href="{{ static_url("css/960_12_col.css") }}"/>
+  <!--<script type="text/javascript" src="{{ static_url("js/jquery-3.0.0.min.js") }}"></script>-->
+  <!--Favicon-->
+  <link rel="icon" href="{{ static_url("images/favicon.png") }}" type="image/x-icon" />
+
+
+  <!--<script>
+    $(document).ready(function(){
+      $(".contact").click(function(){
+        $(".ssd").fadeToggle(1000);
+      });
+    });
+  </script>-->
+  {% block links %}{% end %}
+</head>
+<body>
+
+
+
+  <div id="container"> <!-- content of the page -->
+    <!-- page header -->
+    {% block header %}
+    <header class="container_12">
+
+      <div class="grid_6 login">
+        <a href="/login">login</a>
+      </div>
+
+      <div class="grid_6 push_2 nav">
+        <a href="/">Home</a>
+        <a href="/latest">Download</a>
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+      </div>
+
+    </header>
+    {% end %}
+    <!--end page header -->
+
+
+  <!-- main -->
+  <div class="container_12" id="main">
+
+    <div class="grid_3 aside">
+      {% block aside %}{% end %}
+    </div>
+    <div id="content" class="grid_9">
+      <div class="content">
+        <!--{% block body %}-->
+        <div class="top">
+
+          <div class="left_content">
+            {% block topleft %}{% end %}
+          </div>
+
+          <div class="right_content pull_1">
+            {% block topright %}{% end %}
+          </div>
+        </div>
+        <!--{% end %}-->
+
+
+        <!-- bottom section -->
+        <div class="bottom">
+
+          <div class="soton1">
+            {% block soton1 %}{% end %}
+          </div>
+          <div class="soton2">
+            {% block soton2 %}{% end %}
+          </div>
+          <div class="soton3">
+            {% block soton3 %}{% end %}
+          </div>
+        </div>
+        <!--end bottom section -->
+
+      </div>
+    </div>
+  </div>
+  <!--end main -->
+
+  <!--footer -->
+  <footer class="container_12">
+    {% block footer %}
+    <p style="text-align: center;">
+      <small><a class="a2" href="/copyright">copyright&copy;2018</a></small>
+    </p>
+    {% end %}
+  </footer>
+  <!-- footer -->
+  </div>
+  <!-- end content of the page -->
+
+  <!--insert script -->
+  <script src="{{ static_url("js/script.js") }}"></script>
+
+</body>
+</html>

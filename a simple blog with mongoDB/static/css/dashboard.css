@@ -1,0 +1,28 @@
+.dash-side nav {
+    margin-left: -10px;
+}
+.dash-side a{
+    text-decoration: none;
+    font-size: 75%;
+    display: block;
+    padding: 10px 0px 10px 10px;
+}
+.dash-side a:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+
+
+.logout a {
+    text-decoration: none;
+    padding: 12px 12px 12px 0px;
+    margin-left: -10px;
+}
+.logout a:hover {
+    background-color: #413f3b;
+    color: #fff;
+    position: relative;
+    bottom: 2px;
+    display: run-in;
+}

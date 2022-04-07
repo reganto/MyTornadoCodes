@@ -1,0 +1,7 @@
+{% extends "dashboard.html" %}
+
+{% block topright %}
+    {% for comment in comments %}
+        {% module View_comment(comment) %}
+    {% end %}
+{% end %}

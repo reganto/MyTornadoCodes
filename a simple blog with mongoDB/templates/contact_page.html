@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+
+
+{% block topleft %}
+  <div>
+    <h1>Contact Us</h1>
+    <form  action="/send_info" method="post">
+      <p>
+
+        <input type="text" name="name" id="name"
+        required="required" autocomplete="on" placeholder="Name" size="41" />
+      </p>
+
+      <p>
+
+        <input type="email" name="email" id="email"
+         required="required" autocomplete="on" placeholder="Email" size="41" />
+      </p>
+
+       <p>
+         <textarea name="txt" id="txt" rows="8" cols="60" placeholder="Comment"></textarea>
+       </p>
+
+       <p>
+         <input type="submit" value="Send">
+       </p>
+
+    </form>
+  </div>
+
+{% end %}

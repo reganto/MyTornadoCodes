@@ -1,0 +1,90 @@
+body {
+  background-color: #555;
+  font-size: 90%;
+  color: #aaa;
+}
+#container {
+  background-color: #555;
+}
+* {
+  box-sizing: border-box;
+}
+header {
+  margin-top: 0px;
+}
+.nav {
+  padding-bottom: 10px;
+}
+#main {
+  background-color: #413f3b;
+}
+footer {
+  background-color: #555;
+  margin-top: 20px;
+}
+.a2 {
+  text-decoration: none;
+}
+
+a {
+  color: #aaa;
+}
+
+footer {
+   text-align:right;
+}
+
+.soton1,  .soton2, .soton3 {
+  float: left;width:33%;
+}
+
+.bottom {
+  clear:both;
+  padding-top: 40px;
+  z-index: -1;
+}
+
+.right_content {
+  float: right;width:30%;
+  padding: 60px 0px 0px 40px;
+}
+.left_content {
+  float: left;width:70%;
+  text-align: justify;
+}
+
+#content, .aside {
+  margin: 20px 0px 0px 0px;
+}
+
+.bottom p {
+  border-bottom: 1px solid #aaa;
+  padding: 5px;
+  font-size: 85%;
+}
+.bottom p:last-child {
+  border-bottom: none;
+}
+.nav a, .login a {
+  text-decoration: none;
+  padding: 12px;
+}
+.nav a:last-child {
+    padding-right: 6px;
+}
+.nav a:hover, .login a:hover {
+  background-color: #413f3b;
+  color: #fff;
+  position: relative;
+  bottom: 2px;
+}
+.login a {
+    margin-left: -10px;
+}
+.ssd {
+   text-align: center;
+   background-color: #413f3b;
+   display:none;
+   position:fixed;
+   z-index:1;
+}

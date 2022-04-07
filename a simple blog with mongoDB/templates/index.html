@@ -1,0 +1,99 @@
+{% extends "main.html" %}
+
+{% block links %}
+  <link rel="stylesheet" href="{{ static_url("css/index_style.css") }}">
+{% end %}
+
+{% block aside %}
+  <div class="aside_navbar">
+      <h2>Menu</h2>
+      <div class="aside_links">
+        <ul>
+          <li><a href="/whetting">Whetting Your Appetite</a> </li>
+          <li><a href="/interpreter">Using the Python Interpreter</a> </li>
+          <li><a href="/intro">An Informal Introduction to Python</a> </li>
+          <li><a href="/control_flow">More Control Flow Tools</a> </li>
+          <li><a href="/ds">Data Structures</a> </li>
+          <li><a href="/modules">Modules</a> </li>
+          <li><a href="/io">Input and Oudtput</a> </li>
+          <li><a href="/error">Errors and Exceptions</a> </li>
+          <li><a href="/classes">Classes</a> </li>
+        </ul>
+      </div>
+
+
+    <div class="freinds">
+      <h2>My Friends</h2>
+      <!-- MY FRIENDS ****************************************************** -->
+      <div class="freinds_links">
+        <a href="http://jadi.net" target="_blank">Jadi</a>
+        <br />
+        <a href="http://python.org" target="_blank">PSF</a>
+        <br />
+        <a href="http://gnu.org" target="_blank">Gnu</a>
+        <br />
+        <a href="ftp://ftp.gnu.org" target="_blank">Gnu FTP</a>
+      </div>
+    </div>
+
+
+  </div>
+{% end %}
+
+{% block topleft %}
+  <h1><a href="/" class="extralink">{{ index_header }}</a></h1>
+  <p>{{ intro_text }}</p>
+  <div class="top_paragraph_groups">
+    <p>{{ primary_paragraph }}</p>
+  </div>
+{% end %}
+
+{% block topright %}
+  <div class="top_right_img">
+    <img src="{{ static_url("images/01.png") }}" width="130" height="140" alt="intro" />
+  </div>
+{% end %}
+<!--
+{% block soton1 %}
+  <div class="soton1_img">
+    <img src="{{ static_url("images/02.png") }}" width="100" height="120" alt="intro" />
+  </div>
+  <div class="soton1_para">
+    <p><a href="/postcontent" target="_blank">{{ soton1_p1 }}<a></p>
+    <p>{{ soton1_p2 }}</p>
+    <p>{{ soton1_p3 }}</p>
+  </div>
+{% end %}
+
+{% block soton2 %}
+  <div class="soton2_img">
+    <img src="{{ static_url("images/03.png")}}" width="100" height="120" alt="intro" />
+  </div>
+  <div class="soton2_para">
+    <p>{{ soton2_p1 }}</p>
+    <p>{{ soton2_p2 }}</p>
+    <p>{{ soton2_p3 }}</p>
+  </div>
+{% end %}
+
+{% block soton3 %}
+  <div class="soton3_img">
+    <img src="{{ static_url("images/04.png")}}" width="100" height="120" alt="intro" />
+  </div>
+  <div class="soton3_para">
+    <p>{{ soton3_p1 }}</p>
+    <p>{{ soton3_p2 }}</p>
+    <p>{{ soton3_p3 }}</p>
+  </div>
+{% end %} -->
+
+
+
+{% block footer %}
+  <div class="footer_links">
+    <a href="/privacy">Privacy policy</a>
+    <a href="/copyright">Copyright&copy;2018</a>
+    <a href="/legal">Legal information</a>
+    <a href="/latest">Latest version of python</a>
+  </div>
+{% end %}

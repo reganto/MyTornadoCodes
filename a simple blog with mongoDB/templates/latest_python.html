@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+{% autoescape None %}
+
+{% block topleft %}
+  <h1>Download Latest Version Of Python</h1>
+  <div class="">
+    <p>When you use Python interactively, it is frequently handy to have some standard commands executed every time the interpreter is started. You can do this by setting an environment variable named PYTHONSTARTUP to the name of a file containing your start-up commands. This is similar to the .profile feature of the Unix shells.</p>
+    <a href=" {{ static_url('download/') }}{{ py_ver }} ">Download</a>
+  </div>
+{% end %}

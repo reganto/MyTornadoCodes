@@ -1,0 +1,34 @@
+{% extends "main.html" %}
+
+{% block links %}
+    <link rel="stylesheet" href=" {{ static_url('css/dashboard.css') }} ">
+{% end %}
+
+{% block header %}
+<header class="container_12">
+
+  <div class="grid_6 logout">
+    <a href="/">logout</a>
+  </div>
+
+  <div class="grid_6 push_2 nav">
+    <a href="/">Home</a>
+    <a href="/latest">Download</a>
+    <a href="/contact">Contact</a>
+    <a href="/about">About</a>
+  </div>
+
+</header>
+{% end %}
+
+
+{% block aside %}
+<div class="dash-side">
+    <nav>
+        <a href="/compose">New post</a>
+        <a href="/postedit">Edit posts</a>
+        <a href="/comment">View comments</a>
+        <a href="/password">Change password</a>
+    </nav>
+</div>
+{% end %}

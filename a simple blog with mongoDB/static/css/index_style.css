@@ -1,0 +1,56 @@
+.soton1_para, .soton2_para, .soton3_para {
+  text-align: justify;
+  padding-right: 20px;
+}
+.soton1_img, .soton2_img, .soton3_img {
+  text-align: center;
+}
+.top_right_img img {
+    /*border: 1px solid #000;*/
+    padding: 0px 0px 0px 50px;
+    opacity: 0.1;
+}
+.extralink {
+    text-decoration: none;
+}
+.extralink:hover {
+    color: #eee;
+}
+.footer_links a {
+  text-decoration: none;
+  padding: 20px 10px 10px 10px;
+  font-size: 85%;
+}
+.footer_links a:hover {
+  background-color: #413f3b;
+  color: #fff;
+  position: relative;
+  bottom: 2px;
+}
+
+.aside_links ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.aside_links a {
+  text-decoration: none;
+  font-size: 75%;
+  display: block;
+  padding: 10px 0px 10px 10px;
+}
+.freinds_links a {
+  text-decoration: none;
+  font-size: 75%;
+  display: block;
+  padding: 1px 0px 1px 10px;
+}
+.aside_links a:hover, .freinds_links a:hover {
+  background-color: #555;
+  color: #fff;
+}
+.aside_navbar h2 {
+  background-color: #444;
+}
+.aside_links, .freinds_links {
+  margin-left: -10px;
+}
