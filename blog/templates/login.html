@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body %}
+{% if error %}
+<span style="color: red">Error: {{ error }}</span><p>
+{% end %}
+
+    <form action="/auth/login" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <input name="email" type="text" placeholder="Email" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="password" type="password" placeholder="Password" />
+                </td>
+            </tr>
+            {% module xsrf_form_html() %}
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Login">
+                </td>
+            </tr>
+        </table>      
+    </form>
+{% end %}
