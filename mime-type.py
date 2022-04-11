@@ -1,3 +1,6 @@
+# Author: Reganto -> https://gitlab.com/reganto
+
+
 # Show pdf
 
 class PDFHandler(tornado.web.RequestHandler):
