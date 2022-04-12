@@ -1,0 +1,29 @@
+{% extends '../base.html' %}
+
+{% block title %} - Alpha{% end %}
+
+{% block body %}
+    <div class="w3-container">
+        <form action="/poem" method="post">
+            <div class="w3-panel w3-light-grey">
+                <h2>{{ _('Source text') }}</h2>
+                <p style="text-align: justify">
+                    <textarea name="source" id="source"
+                        cols="55" rows="4" class="w3-input"></textarea>
+                </p>
+            </div>
+
+            <div class="w3-panel w3-light-grey">
+                 <h2>{{ _('Text to replacement') }}</h2>
+                 <p style="text-align: justify">
+                    <textarea name="change" id="change"
+                        cols="55" rows="4" class="w3-input"></textarea>
+                 </p>
+            </div>
+            <input type="submit" value="{{ _('Send') }}" class="w3-button w3-green" />
+            {% module xsrf_form_html() %}
+        </form>
+        {% set x=static_url('css/style.css') %}
+        <p>{{ x }}</p>
+    </div>
+{% end %}
