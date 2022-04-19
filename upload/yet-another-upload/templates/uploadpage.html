@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>page title</title>
+        <!-- <link rel="icon" href="{{ static_url("uploads/logo.png") }} type="image/x-icon" /> -->
+    </head>
+    <body>
+
+        <h1>Upload App</h1>
+
+        <form enctype="multipart/form-data" action="/upload" method="post" >
+            File:<a href="#" onclick="document.getElementById('morteza').click(); return false;">Browse</a>
+            <input type='file' id='morteza' name='morteza' style='visibility: hidden;' />
+            <br />
+            <br />
+            <input type="submit" value="Upload" />
+        </form>
+
+
+    </body>
+</html>
