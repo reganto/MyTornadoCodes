@@ -1,0 +1,9 @@
+@tornado.web.stream_request_body
+class HTTPHandler(tornado.web.RequestHandler):
+    @tornado.gen.coroutine
+    def prepare(self):
+        yield long_time_operation()
+
+    @tornado.gen.coroutine
+    def data_received(self, chunk):
+        print("Data received")
